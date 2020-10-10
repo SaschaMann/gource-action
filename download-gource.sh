@@ -10,4 +10,4 @@ get_latest_release() {
 URL="https://github.com/acaudwell/Gource/releases/download/$(get_latest_release "acaudwell/Gource")/gource-0.51.tar.gz"
 
 mkdir gource
-curl -s --location "$URL" | tar xz -C gource/
+curl -s --location "$URL" | tar xz --strip-components=1 -C gource/

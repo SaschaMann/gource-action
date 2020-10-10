@@ -12,9 +12,9 @@ jobs:
       
       - uses: ./
         with:
-          output-path: ${{ env.HOME }}/vis.mkv
+          output-path: vis.mkv
 
       - uses: actions/upload-artifact@v2
         with:
           name: visualisation
-          path: ${{ env.HOME }}/vis.mkv
+          path: vis.mkv

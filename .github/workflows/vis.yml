@@ -26,10 +26,10 @@ jobs:
           sudo apt-get install -y gource ffmpeg 
       
       - name: Run gource to create visualisation
-        run: xvfb-run -a -s "-screen 0 2560x1440x24" gource --viewport 2560x1440 -s 0.16 -r 60 --stop-at-end --multi-sampling --user-scale 1.25 --hide "filenames,mouse,usernames,dirnames" --bloom-multiplier 0.5 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx265 -b:v 10000K ${{ github.event.inputs.target-repo }}.mkv
+        run: xvfb-run -a -s "-screen 0 2560x1440x24" gource --viewport 2560x1440 -s 0.16 -r 60 --stop-at-end --multi-sampling --user-scale 1.25 --hide "filenames,mouse,usernames,dirnames" --bloom-multiplier 0.5 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx265 -b:v 10000K vis.mkv
 
       - name: Upload video
         uses: actions/upload-artifact@v2
         with:
-          name: visualisation-${{ github.event.inputs.target-repo }}-${{ github.job }}
-          path: ${{ github.event.inputs.target-repo }}.mkv
+          name: visualisation-${{ github.job }}
+          path: vis.mkv

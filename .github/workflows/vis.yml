@@ -6,7 +6,7 @@ on:
       target-repo:
         description: 'Repo that should be visualised'
         required: true
-        default: ${{ github.repository }}
+        default: 'SaschaMann/gource-action'
 
 jobs:
   visualise:

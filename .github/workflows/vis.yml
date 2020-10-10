@@ -3,9 +3,11 @@ name: Repo Visualisation
 on:
   workflow_dispatch:
     inputs:
+      # this is just a debug parameter, in practice this will not be needed
       target-repo:
         description: 'Repo that should be visualised'
         required: true
+        # github.repository doesn't work here for some reason
         default: 'SaschaMann/gource-action'
 
 jobs:

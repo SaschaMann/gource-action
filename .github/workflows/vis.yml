@@ -11,3 +11,10 @@ jobs:
       - uses: actions/checkout@v2
       
       - uses: ./
+        with:
+          output-path: ${{ env.HOME }}/vis.mkv
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: visualisation
+          path: ${{ env.HOME }}/vis.mkv

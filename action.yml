@@ -12,7 +12,7 @@ inputs:
     required: false
   output-path:
     description: 'Path to write the video file to'
-    default: 'out.mp4'
+    default: 'out.mkv'
     required: false
 
 runs:
@@ -25,5 +25,5 @@ runs:
       shell: bash
     
     # Test installation
-    - run: gource -h
+    - run: xvfb-run -a -s "-screen 0 1280x720x24" gource --viewport 1280x720 -s 0.25 -r 60 --stop-at-end --multi-sampling --user-scale 1.25 --hide "filenames,mouse,usernames,dirnames" -o - | ffmpeg -y -b 10000K -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx265 -b:v 10000K ${{ inputs.output-path }}
       shell: bash

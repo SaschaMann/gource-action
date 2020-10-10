@@ -21,7 +21,7 @@ runs:
     # Install gource
     - run: |
         sudo apt-get update -y
-        sudo apt-get install -y gource
+        sudo apt-get install -y gource ffmpeg 
       shell: bash
     
     # Test installation

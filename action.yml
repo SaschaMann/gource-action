@@ -25,6 +25,7 @@ runs:
     # Install gource
     - run: |
         cd gource
+        ls -la
         ./configure
         make
         make install
